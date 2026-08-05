@@ -1,0 +1,32 @@
+{
+  "name": "@platform/encryption",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AES-256-GCM at-rest encryption with key from PLATFORM_ENCRYPTION_KEY",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "clean": "rm -rf dist node_modules .turbo"
+  },
+  "dependencies": {
+    "@platform/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@types/node": "^20.14.10",
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

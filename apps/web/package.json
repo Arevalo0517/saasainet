@@ -1,0 +1,39 @@
+{
+  "name": "@platform/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portal Next.js para fabricante, distribuidor y cliente",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "next build",
+    "dev": "next dev --port 3000",
+    "start": "next start",
+    "clean": "rm -rf .next node_modules .turbo"
+  },
+  "dependencies": {
+    "@platform/auth": "workspace:*",
+    "@platform/contracts": "workspace:*",
+    "@platform/observability": "workspace:*",
+    "@platform/ui": "workspace:*",
+    "next": "^14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@testing-library/react": "^16.0.1",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.9.0",
+    "eslint-config-next": "^14.2.13",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

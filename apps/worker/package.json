@@ -1,0 +1,32 @@
+{
+  "name": "@platform/worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Workers BullMQ para mensajes, IA, webhooks, pagos y documentos",
+  "type": "module",
+  "main": "./src/main.ts",
+  "scripts": {
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "clean": "rm -rf dist node_modules .turbo"
+  },
+  "dependencies": {
+    "@platform/contracts": "workspace:*",
+    "@platform/observability": "workspace:*",
+    "@platform/redis": "workspace:*",
+    "bullmq": "^5.12.0",
+    "ioredis": "^5.4.1"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@types/node": "^20.14.10",
+    "eslint": "^9.9.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

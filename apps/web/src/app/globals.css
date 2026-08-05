@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --border: 214 32% 91%;
+  --radius: 0.5rem;
+  --midnight: #07111f;
+  --electric: #2563eb;
+  --cyan-ai: #22d3ee;
+  --warm: #ff7a59;
+  --cloud: #f8fafc;
+}
+
+html,
+body {
+  background-color: var(--midnight);
+  color: var(--cloud);
+}
+
+* {
+  border-color: rgba(34, 211, 238, 0.15);
+}
+
+body {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+.midnight-card {
+  background: rgba(7, 17, 31, 0.7);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px);
+}
+
+.midnight-card:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 12px 32px -16px rgba(34, 211, 238, 0.4);
+}
+
+.btn-electric {
+  background: linear-gradient(135deg, #2563eb 0%, #22d3ee 100%);
+  color: #f8fafc;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.btn-electric:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(34, 211, 238, 0.6);
+}
+
+.btn-warm {
+  background: #ff7a59;
+  color: #07111f;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.btn-warm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(255, 122, 89, 0.6);
+}
+
+.input-midnight {
+  background: rgba(7, 17, 31, 0.6);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  color: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.input-midnight:focus {
+  outline: none;
+  border-color: rgba(34, 211, 238, 0.7);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.chip-cyan {
+  background: rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+}
+
+.chip-electric {
+  background: rgba(37, 99, 235, 0.18);
+  color: #93b4fa;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+}
+
+.chip-warm {
+  background: rgba(255, 122, 89, 0.15);
+  color: #ffb196;
+  border: 1px solid rgba(255, 122, 89, 0.4);
+}
+
+.chip-cloud {
+  background: rgba(248, 250, 252, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(248, 250, 252, 0.2);
+}

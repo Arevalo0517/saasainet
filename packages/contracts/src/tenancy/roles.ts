@@ -1,0 +1,34 @@
+export const PLATFORM_ROLES = {
+  SUPER_ADMIN: 'PLATFORM_SUPER_ADMIN',
+  SUPPORT: 'PLATFORM_SUPPORT',
+  FINANCE: 'PLATFORM_FINANCE',
+  ANALYST: 'PLATFORM_ANALYST',
+} as const;
+
+export const DISTRIBUTOR_ROLES = {
+  ADMIN: 'DISTRIBUTOR_ADMIN',
+  IMPLEMENTER: 'DISTRIBUTOR_IMPLEMENTER',
+  SUPPORT: 'DISTRIBUTOR_SUPPORT',
+  SALES: 'DISTRIBUTOR_SALES',
+  ANALYST: 'DISTRIBUTOR_ANALYST',
+  READ_ONLY: 'DISTRIBUTOR_READ_ONLY',
+} as const;
+
+export const CLIENT_ROLES = {
+  ADMIN: 'CLIENT_ADMIN',
+  MANAGER: 'CLIENT_MANAGER',
+  HUMAN_AGENT: 'CLIENT_HUMAN_AGENT',
+  ANALYST: 'CLIENT_ANALYST',
+  READ_ONLY: 'CLIENT_READ_ONLY',
+} as const;
+
+export const ALL_ROLES = [
+  ...Object.values(PLATFORM_ROLES),
+  ...Object.values(DISTRIBUTOR_ROLES),
+  ...Object.values(CLIENT_ROLES),
+] as const;
+
+export type PlatformRole = (typeof PLATFORM_ROLES)[keyof typeof PLATFORM_ROLES];
+export type DistributorRole = (typeof DISTRIBUTOR_ROLES)[keyof typeof DISTRIBUTOR_ROLES];
+export type ClientRole = (typeof CLIENT_ROLES)[keyof typeof CLIENT_ROLES];
+export type Role = (typeof ALL_ROLES)[number];

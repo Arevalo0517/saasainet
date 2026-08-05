@@ -1,0 +1,48 @@
+{
+  "name": "@platform/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Esquemas Zod y DTOs compartidos entre apps y packages",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./shared": {
+      "types": "./dist/shared/index.d.ts",
+      "default": "./dist/shared/index.js"
+    },
+    "./tenancy": {
+      "types": "./dist/tenancy/index.d.ts",
+      "default": "./dist/tenancy/index.js"
+    },
+    "./agents": {
+      "types": "./dist/agents/index.d.ts",
+      "default": "./dist/agents/index.js"
+    },
+    "./billing": {
+      "types": "./dist/billing/index.d.ts",
+      "default": "./dist/billing/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "clean": "rm -rf dist node_modules .turbo"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@types/node": "^20.14.10",
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

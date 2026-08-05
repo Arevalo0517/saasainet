@@ -1,0 +1,45 @@
+{
+  "name": "@platform/db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Drizzle ORM, esquema de base de datos, migraciones y seeds",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schema": {
+      "types": "./dist/schema/index.d.ts",
+      "default": "./dist/schema/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "generate": "tsx node_modules/drizzle-kit/bin.cjs generate",
+    "migrate": "tsx node_modules/drizzle-kit/bin.cjs migrate",
+    "push": "tsx node_modules/drizzle-kit/bin.cjs push",
+    "studio": "tsx node_modules/drizzle-kit/bin.cjs studio",
+    "seed": "tsx src/seed.ts",
+    "clean": "rm -rf dist node_modules .turbo"
+  },
+  "dependencies": {
+    "@platform/contracts": "workspace:*",
+    "drizzle-orm": "^0.33.0",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@types/node": "^20.14.10",
+    "drizzle-kit": "^0.24.2",
+    "eslint": "^9.9.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

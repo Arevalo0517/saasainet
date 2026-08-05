@@ -1,0 +1,107 @@
+{
+  "name": "Platform → n8n webhook (agent.conversation events)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "platform-agent",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "platform-webhook-trigger",
+      "name": "Platform Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "platform-agent-hook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"headers\"][\"x-platform-event-id\"]}}",
+              "operation": "exists",
+              "value2": ""
+            }
+          ]
+        }
+      },
+      "id": "verify-signature",
+      "name": "Has Signature",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "const sig = $json.headers['x-platform-signature'] || '';\nconst m = /t=(\\d+),v1=([0-9a-f]{64})/.exec(sig);\nif (!m) { throw new Error('bad signature header'); }\nconst ts = m[1]; const v1 = m[2];\nconst crypto = require('crypto');\nconst secret = $env.PLATFORM_WEBHOOK_SECRET;\nconst expected = crypto.createHmac('sha256', secret).update(`${ts}.${$json.body}`).digest('hex');\nconst a = Buffer.from(v1, 'hex');\nconst b = Buffer.from(expected, 'hex');\nif (a.length !== b.length || !crypto.timingSafeEqual(a, b)) { throw new Error('signature mismatch'); }\nconst event = JSON.parse($json.body);\nreturn [{ json: { event } }];"
+      },
+      "id": "verify-hmac",
+      "name": "Verify HMAC SHA-256",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"event\"][\"eventType\"]}}",
+              "operation": "equals",
+              "value2": "conversation.started"
+            }
+          ]
+        }
+      },
+      "id": "route-started",
+      "name": "Started?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{ json: { ok: true, event: $json.event } }];"
+      },
+      "id": "noop",
+      "name": "No-op",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1140, 320]
+    }
+  ],
+  "connections": {
+    "Platform Webhook": {
+      "main": [[{ "node": "Has Signature", "type": "main", "index": 0 }]]
+    },
+    "Has Signature": {
+      "main": [
+        [{ "node": "Verify HMAC SHA-256", "type": "main", "index": 0 }],
+        [{ "node": "No-op", "type": "main", "index": 0 }]
+      ]
+    },
+    "Verify HMAC SHA-256": {
+      "main": [[{ "node": "Started?", "type": "main", "index": 0 }]]
+    },
+    "Started?": {
+      "main": [
+        [{ "node": "No-op", "type": "main", "index": 0 }],
+        [{ "node": "No-op", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "platform"
+    }
+  ],
+  "active": false,
+  "pinData": {},
+  "versionId": "1.0.0"
+}

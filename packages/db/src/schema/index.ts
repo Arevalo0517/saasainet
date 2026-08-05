@@ -1,0 +1,24 @@
+export const SCHEMA_VERSION = '0.8.0-fase8-f';
+
+export * from './enums.js';
+export * from './platforms.js';
+export * from './distributors.js';
+export * from './clients.js';
+export * from './roles.js';
+export * from './permissions.js';
+export * from './role-permissions.js';
+export * from './users.js';
+export * from './user-roles.js';
+export * from './invitations.js';
+export * from './sessions.js';
+export * from './mfa-methods.js';
+export * from './plans.js';
+export * from './billing.js';
+export * from './agents.js';
+export * from './knowledge.js';
+export * from './conversations.js';
+export * from './webhooks.js';
+export * from './channels.js';
+export * from './audit.js';
+export * from './usage.js';
+export * from './relations.js';

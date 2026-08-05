@@ -1,0 +1,13 @@
+{
+  "name": "@platform/config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Configuraciones compartidas (tsconfig, eslint, prettier) para el monorepo",
+  "files": ["tsconfig.*.json", "eslint.config.*", "README.md"],
+  "scripts": {
+    "lint": "echo 'No lint in config package'",
+    "typecheck": "echo 'No typecheck in config package'",
+    "test": "echo 'No tests in config package'",
+    "clean": "rm -rf node_modules"
+  }
+}

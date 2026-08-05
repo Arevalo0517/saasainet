@@ -1,0 +1,39 @@
+{
+  "name": "@platform/auth",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sesiones, RBAC, tenant context y soporte",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./identity": {
+      "types": "./dist/services/identity/index.d.ts",
+      "default": "./dist/services/identity/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc",
+    "clean": "rm -rf dist node_modules .turbo"
+  },
+  "dependencies": {
+    "@platform/contracts": "workspace:*",
+    "@platform/redis": "workspace:*",
+    "argon2": "^0.45.1",
+    "jose": "^5.6.3"
+  },
+  "devDependencies": {
+    "@platform/config": "workspace:*",
+    "@types/node": "^20.14.10",
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
