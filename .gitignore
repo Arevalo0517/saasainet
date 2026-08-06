@@ -47,3 +47,4 @@ supabase/.temp
 # Test artifacts
 playwright-report/
 test-results/
+.vercel

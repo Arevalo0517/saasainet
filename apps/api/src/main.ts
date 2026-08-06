@@ -12,8 +12,8 @@ import { initRedisProvider } from '@platform/redis';
 
 const bootstrap = async () => {
   const logger = createLogger('api');
-  const app = await NestFactory.create(AppModule, { logger: false });
-  app.useLogger(false);
+  const app = await NestFactory.create(AppModule, { logger: ['error', 'warn', 'log', 'debug', 'verbose'] });
+  app.useLogger(['error', 'warn', 'log', 'debug', 'verbose']);
 
   app.use(helmet());
   app.use(new CorrelationIdMiddleware().use);
