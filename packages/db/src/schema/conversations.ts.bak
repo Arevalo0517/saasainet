@@ -1,10 +1,10 @@
 import { pgTable, uuid, varchar, text, integer, jsonb, timestamp, index, uniqueIndex } from 'drizzle-orm/pg-core';
-import { conversationStateEnum, messageDirectionEnum, messageRoleEnum } from './enums';
-import { platforms } from './platforms';
-import { distributors } from './distributors';
-import { clients } from './clients';
-import { agents } from './agents';
-import { agentVersions } from './agents';
+import { conversationStateEnum, messageDirectionEnum, messageRoleEnum } from './enums.js';
+import { platforms } from './platforms.js';
+import { distributors } from './distributors.js';
+import { clients } from './clients.js';
+import { agents } from './agents.js';
+import { agentVersions } from './agents.js';
 
 export const conversations = pgTable(
   'conversations',

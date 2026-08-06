@@ -1,7 +1,7 @@
 import { pgTable, uuid, varchar, text, timestamp, boolean, index, uniqueIndex, integer, jsonb } from 'drizzle-orm/pg-core';
-import { platforms } from './platforms';
-import { distributors } from './distributors';
-import { clients } from './clients';
+import { platforms } from './platforms.js';
+import { distributors } from './distributors.js';
+import { clients } from './clients.js';
 
 export const plans = pgTable(
   'plans',

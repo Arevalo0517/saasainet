@@ -1,20 +1,20 @@
 import { relations } from 'drizzle-orm';
-import { platforms } from './platforms';
-import { roles } from './roles';
-import { permissions } from './permissions';
-import { rolePermissions } from './role-permissions';
-import { users } from './users';
-import { userRoles } from './user-roles';
-import { invitations } from './invitations';
-import { sessions } from './sessions';
-import { mfaMethods } from './mfa-methods';
-import { distributors } from './distributors';
-import { clients } from './clients';
-import { plans, planVersions, subscriptions } from './plans';
-import { paymentCustomers, payments, commissionEntries, payouts } from './billing';
-import { agents, agentVersions } from './agents';
-import { knowledgeBases, documents, chunks } from './knowledge';
-import { conversations, messages } from './conversations';
+import { platforms } from './platforms.js';
+import { roles } from './roles.js';
+import { permissions } from './permissions.js';
+import { rolePermissions } from './role-permissions.js';
+import { users } from './users.js';
+import { userRoles } from './user-roles.js';
+import { invitations } from './invitations.js';
+import { sessions } from './sessions.js';
+import { mfaMethods } from './mfa-methods.js';
+import { distributors } from './distributors.js';
+import { clients } from './clients.js';
+import { plans, planVersions, subscriptions } from './plans.js';
+import { paymentCustomers, payments, commissionEntries, payouts } from './billing.js';
+import { agents, agentVersions } from './agents.js';
+import { knowledgeBases, documents, chunks } from './knowledge.js';
+import { conversations, messages } from './conversations.js';
 
 export const platformsRelations = relations(platforms, ({ many }) => ({
   users: many(users),

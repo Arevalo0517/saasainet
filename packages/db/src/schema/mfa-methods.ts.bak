@@ -1,6 +1,6 @@
 import { pgTable, uuid, varchar, text, timestamp, boolean, index } from 'drizzle-orm/pg-core';
-import { mfaMethodTypeEnum, mfaMethodStatusEnum } from './enums';
-import { users } from './users';
+import { mfaMethodTypeEnum, mfaMethodStatusEnum } from './enums.js';
+import { users } from './users.js';
 
 export const mfaMethods = pgTable(
   'mfa_methods',

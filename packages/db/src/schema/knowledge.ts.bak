@@ -1,9 +1,9 @@
 import { pgTable, uuid, varchar, text, integer, jsonb, timestamp, index, customType } from 'drizzle-orm/pg-core';
-import { knowledgeBaseStatusEnum, documentStatusEnum } from './enums';
-import { platforms } from './platforms';
-import { distributors } from './distributors';
-import { clients } from './clients';
-import { agents } from './agents';
+import { knowledgeBaseStatusEnum, documentStatusEnum } from './enums.js';
+import { platforms } from './platforms.js';
+import { distributors } from './distributors.js';
+import { clients } from './clients.js';
+import { agents } from './agents.js';
 
 const vector = customType<{ data: number[]; driverData: string }>({
   dataType() {

@@ -1,5 +1,5 @@
 import { pgTable, uuid, varchar, text, timestamp, uniqueIndex } from 'drizzle-orm/pg-core';
-import { userRoleScopeEnum } from './enums';
+import { userRoleScopeEnum } from './enums.js';
 
 export const roles = pgTable(
   'roles',

@@ -1,6 +1,6 @@
 import { pgTable, uuid, varchar, timestamp, boolean, index, uniqueIndex } from 'drizzle-orm/pg-core';
-import { distributorStatusEnum } from './enums';
-import { platforms } from './platforms';
+import { distributorStatusEnum } from './enums.js';
+import { platforms } from './platforms.js';
 
 export const distributors = pgTable(
   'distributors',
