@@ -56,7 +56,7 @@ export type ApiError = { code: string; message: string };
 
 const resolveApiBase = (): string => {
   if (!isBrowser()) return 'http://localhost:3001';
-  const fromEnv = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const fromEnv = process.env.NEXT_PUBLIC_API_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL;
   if (fromEnv && fromEnv.length > 0) return fromEnv;
   const origin = window.location.origin;
   if (origin.includes('localhost:3000') || origin.includes('127.0.0.1:3000')) {
