@@ -53,8 +53,21 @@ const bootstrap = async () => {
   const document = SwaggerModule.createDocument(app, swagger);
   SwaggerModule.setup('api/v1/docs', app, document);
 
+  const allowedOrigins = (process.env.APP_URL ?? 'http://localhost:3000')
+    .split(',')
+    .map((o) => o.trim())
+    .filter((o) => o.length > 0);
+  const isAllowedOrigin = (origin: string | undefined): boolean => {
+    if (origin === undefined) return false;
+    if (allowedOrigins.includes(origin)) return true;
+    if (origin.endsWith('.vercel.app')) return true;
+    return false;
+  };
   app.enableCors({
-    origin: process.env.APP_URL ?? 'http://localhost:3000',
+    origin: (origin, cb) => {
+      if (isAllowedOrigin(origin)) cb(null, true);
+      else cb(null, false);
+    },
     credentials: true,
   });
 
